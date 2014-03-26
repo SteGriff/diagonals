@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Diagonals</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style type="text/css">
+	</style>
+
+	<script type="text/javascript">
+	function $(x){
+		return((x[0]=="#")?document.getElementById(x.substr(1)):document.getElementsByTagName(x)[0]);
+	}
+	function render(){
+		$img = $('#diags');
+		url = "http://stegriff.co.uk/host/diagonals/draw.php?width=" +
+			$('#width').value +
+			"&height=" + $('#height').value +
+			"&phase=" + $('#phase').value +
+			"&twist=" + $('#twist').value +
+			"&border=" + $('#border').value +
+			"&diagonals=" + $('#diagonals').checked;
+		console.log(url);
+		$img.setAttribute('src', url);
+	}
+	</script>
+
+</head>
+<body>
+	<form>
+		<p>
+			<input id="width" placeholder="width" type="number">
+			<input id="height" placeholder="height" type="number">
+			<input id="diagonals" checked="true" type="checkbox" label="Diags">
+		</p>
+		<p>
+			<input id="phase" placeholder="phase" type="number">
+			<input id="twist" placeholder="twist" type="number">
+			<input id="border" placeholder="border" type="number">
+		</p>
+		<p><input type="button" value="generate" onclick="render()"></p>
+	</form>
+	<p>
+		<img id="diags">
+	</p>
+</body>
+</html>
